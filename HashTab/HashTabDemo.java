@@ -10,7 +10,7 @@ public class HashTabDemo {
         String key = "";
         Scanner sc = new Scanner(System.in);
         while(true) {
-            System.out.println("a(add): 添加員工資訊 | f(find): 搜尋員工資訊 | l(list): 顯示員工資訊 | e(exit): 退出系統");
+            System.out.println("a(add): 添加員工資訊 | f(find): 搜尋員工資訊 | d(delete): 刪除員工資訊 | l(list): 顯示員工資訊 | e(exit): 退出系統");
             key = sc.next();
             switch (key) {
                 case "a":
@@ -28,6 +28,11 @@ public class HashTabDemo {
                     System.out.println("請輸入要搜尋的id: ");
                     id = sc.nextInt();
                     hashTab.findEmpById(id);
+                    break;
+                case "d":
+                    System.out.println("請輸入要刪除的id: ");
+                    id = sc.nextInt();
+                    hashTab.delById(id);
                     break;
                 case "e":
                     sc.close();
@@ -87,6 +92,25 @@ class HashTable {
     // 編寫雜湊函數, 使用簡單的取模法
     public int hashFun(int id) {
         return id % size;
+    }
+
+    // 刪除員工資訊
+    public Emp delById(int id) {
+        // 先找到 id 所屬的鏈結串列
+        int no = hashFun(id);
+        // 判斷 no 值是否大於或小於範圍
+        if (no > size || no < 0) {
+            System.out.printf("id = %d 範圍錯誤\n", id);
+            return null;
+        }
+
+        Emp emp = empLinkedListArray[no].delById(id);
+        if (emp == null) {
+            System.out.printf("在第 %d 條鏈結串列中沒找到 id = %d 的員工，删除失敗!! \n", no, id);
+        } else {
+            System.out.printf("在第 %d 條鏈結串列中找到 id = %d 的員工, name = %s , 删除成功!! \n", no, id, emp.name);
+        }
+        return emp;
     }
 
 }
@@ -167,6 +191,42 @@ class EmpLinkedList {
             curEmp = curEmp.next;
         }
         return curEmp;
+    }
+
+    // 刪除元素
+    public Emp delById(int id) {
+        if (head == null) {
+            return null;
+        }
+        // 非空的鏈結串列才需要循環
+        Emp temp = head;
+        Emp prev = head;
+        while (true) {
+            if (temp.id == id) {
+                // 找到要刪除的元素
+                break;
+            }
+            if (temp.next == null) {
+                // 當前節點的為最末尾
+                temp = null;
+                break;
+            }
+            prev = temp;  // 將 prev 指向當前節點
+            temp = temp.next; // 將當前節點後移 繼續遍歷
+        }
+
+        // 沒有找到要刪除的元素
+        if (temp == null) {
+            return null;
+        }
+        // head 為要刪除的節點
+        if (head == temp) {
+            head = temp.next;
+            return temp;
+        }
+        // 找到要刪除的元素 temp, 將 prev.next 指向 temp.next
+        prev.next = temp.next;
+        return temp;
     }
 
 }
