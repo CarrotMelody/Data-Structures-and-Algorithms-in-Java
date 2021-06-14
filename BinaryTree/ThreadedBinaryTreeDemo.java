@@ -162,72 +162,72 @@ class ThreadedBinaryTree {
     	
     }
 
-    // 刪除節點
-    public void delNode(int no) {
-        if(root != null) {
-            // 如果只有一個root節點, 需要判斷root是不是就是要刪除的節點
-            if(root.getNo() == no) {
-                root = null;
-            } else {
-                // 遞迴刪除
-                root.delNode(no);
-            }
-        } else {
-            System.out.println("空樹");
-        }
-    }
+//     // 刪除節點
+//     public void delNode(int no) {
+//         if(root != null) {
+//             // 如果只有一個root節點, 需要判斷root是不是就是要刪除的節點
+//             if(root.getNo() == no) {
+//                 root = null;
+//             } else {
+//                 // 遞迴刪除
+//                 root.delNode(no);
+//             }
+//         } else {
+//             System.out.println("空樹");
+//         }
+//     }
 
-    // 前序遍歷
-    public void preOrder() {
-        if(this.root != null) {
-            this.root.preOrder();
-        } else {
-            System.out.println("二元樹為空");
-        }
-    }
-    // 中序遍歷
-    public void inOrder() {
-        if(this.root != null) {
-            this.root.inOrder();
-        } else {
-            System.out.println("二元樹為空");
-        }
-    }
-    // 後序遍歷
-    public void postOrder() {
-        if(this.root != null) {
-            this.root.postOrder();
-        } else {
-            System.out.println("二元樹為空");
-        }
-    }
+//     // 前序遍歷
+//     public void preOrder() {
+//         if(this.root != null) {
+//             this.root.preOrder();
+//         } else {
+//             System.out.println("二元樹為空");
+//         }
+//     }
+//     // 中序遍歷
+//     public void inOrder() {
+//         if(this.root != null) {
+//             this.root.inOrder();
+//         } else {
+//             System.out.println("二元樹為空");
+//         }
+//     }
+//     // 後序遍歷
+//     public void postOrder() {
+//         if(this.root != null) {
+//             this.root.postOrder();
+//         } else {
+//             System.out.println("二元樹為空");
+//         }
+//     }
 
-    // 前序搜尋
-    public TreeNode preOrderSearch(int no) {
-        if(root != null) {
-            return root.preOrderSearch(no);
-        } else {
-            return null;
-        }
-    }
+//     // 前序搜尋
+//     public TreeNode preOrderSearch(int no) {
+//         if(root != null) {
+//             return root.preOrderSearch(no);
+//         } else {
+//             return null;
+//         }
+//     }
 
-    // 中序搜尋
-    public TreeNode infixOrderSearch(int no) {
-        if(root != null) {
-            return root.infixOrderSearch(no);
-        } else {
-            return null;
-        }
-    }
+//     // 中序搜尋
+//     public TreeNode infixOrderSearch(int no) {
+//         if(root != null) {
+//             return root.infixOrderSearch(no);
+//         } else {
+//             return null;
+//         }
+//     }
 
-    // 後序搜尋
-    public TreeNode postOrderSearch(int no) {
-        if(root != null) {
-            return root.postOrderSearch(no);
-        } else {
-            return null;
-        }
-    }
+//     // 後序搜尋
+//     public TreeNode postOrderSearch(int no) {
+//         if(root != null) {
+//             return root.postOrderSearch(no);
+//         } else {
+//             return null;
+//         }
+//     }
 }
 
 class TreeNode {
@@ -298,133 +298,133 @@ class TreeNode {
         return "TreeNode [no = " + no + ", name = " + name + " ]";
     }
 
-    // 遞迴刪除節點
-    public void delNode(int no) {
-        // 如果當前節點的左子節點不為空，並且左子節點就是要刪除節點，就將 this.left = null; 並且就返回(結束遞迴刪除)
-        if(this.left != null && this.left.no == no) {
-            this.left = null;
-            return;
-        }
-        // 如果當前節點的右子節點不為空，並且右子節點就是要刪除節點，就將this.right = null; 並且就返回(結束遞迴刪除)
-        if(this.right != null && this.right.no == no) {
-            this.right = null;
-            return;
-        }
-        // 如果前面兩步都沒有刪除節點，就需要向左子樹進行遞迴刪除
-        if(this.left != null) {
-            this.left.delNode(no);
-        }
-        // 如果上一步也沒有刪除節點，則應向右子樹進行遞迴刪除
-        if(this.right != null) {
-            this.right.delNode(no);
-        }
-    }
+//     // 遞迴刪除節點
+//     public void delNode(int no) {
+//         // 如果當前節點的左子節點不為空，並且左子節點就是要刪除節點，就將 this.left = null; 並且就返回(結束遞迴刪除)
+//         if(this.left != null && this.left.no == no) {
+//             this.left = null;
+//             return;
+//         }
+//         // 如果當前節點的右子節點不為空，並且右子節點就是要刪除節點，就將this.right = null; 並且就返回(結束遞迴刪除)
+//         if(this.right != null && this.right.no == no) {
+//             this.right = null;
+//             return;
+//         }
+//         // 如果前面兩步都沒有刪除節點，就需要向左子樹進行遞迴刪除
+//         if(this.left != null) {
+//             this.left.delNode(no);
+//         }
+//         // 如果上一步也沒有刪除節點，則應向右子樹進行遞迴刪除
+//         if(this.right != null) {
+//             this.right.delNode(no);
+//         }
+//     }
 
-    public void preOrder() {
-        System.out.println(this);
-        if(this.left != null) {
-            this.left.preOrder();
-        }
-        if(this.right != null) {
-            this.right.preOrder();
-        }
-    }
+//     public void preOrder() {
+//         System.out.println(this);
+//         if(this.left != null) {
+//             this.left.preOrder();
+//         }
+//         if(this.right != null) {
+//             this.right.preOrder();
+//         }
+//     }
 
-    public void inOrder() {
-        if(this.left != null) {
-            this.left.inOrder();
-        }
-        System.out.println(this);
-        if(this.right != null) {
-            this.right.inOrder();
-        }
-    }
+//     public void inOrder() {
+//         if(this.left != null) {
+//             this.left.inOrder();
+//         }
+//         System.out.println(this);
+//         if(this.right != null) {
+//             this.right.inOrder();
+//         }
+//     }
 
-    public void postOrder() {
-        if(this.left != null) {
-            this.left.postOrder();
-        }
-        if(this.right != null) {
-            this.right.postOrder();
-        }
-        System.out.println(this);
-    }
+//     public void postOrder() {
+//         if(this.left != null) {
+//             this.left.postOrder();
+//         }
+//         if(this.right != null) {
+//             this.right.postOrder();
+//         }
+//         System.out.println(this);
+//     }
 
-    // 前序遍歷搜尋
-    public TreeNode preOrderSearch(int no) {
+//     // 前序遍歷搜尋
+//     public TreeNode preOrderSearch(int no) {
         
-        System.out.println("前序遍歷 1 次");
-        if(this.no == no) {
-            return this;
-        }
-        // 1.判斷當前節點的左子節點是否為空, 如果不為空則遞迴前序搜尋
-        // 2.如果左遞迴前序搜尋, 找到節點就返回
-        TreeNode resNode = null;
-        if(this.left != null) {
-            resNode = this.left.preOrderSearch(no);
-        }
+//         System.out.println("前序遍歷 1 次");
+//         if(this.no == no) {
+//             return this;
+//         }
+//         // 1.判斷當前節點的左子節點是否為空, 如果不為空則遞迴前序搜尋
+//         // 2.如果左遞迴前序搜尋, 找到節點就返回
+//         TreeNode resNode = null;
+//         if(this.left != null) {
+//             resNode = this.left.preOrderSearch(no);
+//         }
 
-        if(resNode != null) { // 說明左子樹找到
-            return resNode;
-        }
-        // 1.左遞迴前序搜尋, 找到節點就返回, 否則繼續判斷
-        // 2.當前節點的右子節點是否為空, 如果不空, 則繼續向右遞迴前序搜尋
-        if(this.right != null) {
-            resNode = this.right.preOrderSearch(no);
-        }
-        return resNode;
-    }
+//         if(resNode != null) { // 說明左子樹找到
+//             return resNode;
+//         }
+//         // 1.左遞迴前序搜尋, 找到節點就返回, 否則繼續判斷
+//         // 2.當前節點的右子節點是否為空, 如果不空, 則繼續向右遞迴前序搜尋
+//         if(this.right != null) {
+//             resNode = this.right.preOrderSearch(no);
+//         }
+//         return resNode;
+//     }
 
-    // 中序遍歷搜尋
-    public TreeNode infixOrderSearch(int no) {
-        // 判斷當前節點的左子節點是否為空, 如果不為空則遞迴中序搜尋
-        TreeNode resNode = null;
-        if(this.left != null) {
-            resNode = this.left.infixOrderSearch(no);
-        }
-        if(resNode != null) { 
-            return resNode;
-        }
+//     // 中序遍歷搜尋
+//     public TreeNode infixOrderSearch(int no) {
+//         // 判斷當前節點的左子節點是否為空, 如果不為空則遞迴中序搜尋
+//         TreeNode resNode = null;
+//         if(this.left != null) {
+//             resNode = this.left.infixOrderSearch(no);
+//         }
+//         if(resNode != null) { 
+//             return resNode;
+//         }
 
-        System.out.println("中序遍歷 1 次"); // 計算遍歷了幾次才找到
-        // 如果找到則返回, 沒找到就和當前節點比較, 如果是則返回當前節點
-        if(this.no == no) {
-            return this;
-        }
+//         System.out.println("中序遍歷 1 次"); // 計算遍歷了幾次才找到
+//         // 如果找到則返回, 沒找到就和當前節點比較, 如果是則返回當前節點
+//         if(this.no == no) {
+//             return this;
+//         }
 
-        // 否則繼續右遞迴中序搜尋
-        if(this.right != null) {
-            resNode = this.right.infixOrderSearch(no);
-        }
-        return resNode;
-    }
+//         // 否則繼續右遞迴中序搜尋
+//         if(this.right != null) {
+//             resNode = this.right.infixOrderSearch(no);
+//         }
+//         return resNode;
+//     }
 
-    // 後序遍歷搜尋
-    public TreeNode postOrderSearch(int no) {
-        // 判斷當前節點的左子節點是否為空, 如果不為空則遞迴後序搜尋
-        TreeNode resNode = null;
-        if(this.left != null) {
-            resNode = this.left.postOrderSearch(no);
-        }
-        if(resNode != null) { 
-            return resNode;
-        }
+//     // 後序遍歷搜尋
+//     public TreeNode postOrderSearch(int no) {
+//         // 判斷當前節點的左子節點是否為空, 如果不為空則遞迴後序搜尋
+//         TreeNode resNode = null;
+//         if(this.left != null) {
+//             resNode = this.left.postOrderSearch(no);
+//         }
+//         if(resNode != null) { 
+//             return resNode;
+//         }
         
-        // 否則繼續右遞迴後序搜尋
-        if(this.right != null) {
-            resNode = this.right.postOrderSearch(no);
-        }
+//         // 否則繼續右遞迴後序搜尋
+//         if(this.right != null) {
+//             resNode = this.right.postOrderSearch(no);
+//         }
 
-        if(resNode != null) { 
-            return resNode;
-        }
+//         if(resNode != null) { 
+//             return resNode;
+//         }
 
-        System.out.println("後序遍歷 1 次"); // 計算遍歷了幾次才找到
+//         System.out.println("後序遍歷 1 次"); // 計算遍歷了幾次才找到
 
-        if(this.no == no) {
-            return this;
-        }
+//         if(this.no == no) {
+//             return this;
+//         }
 
-        return resNode;
-    }
+//         return resNode;
+//     }
 }
